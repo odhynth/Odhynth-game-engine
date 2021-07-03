@@ -3,13 +3,14 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="src" path="res"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="G:/Mis documentos/Programación/GitHub/3D-Game-Engine-ThinMatrix/3D Game Engine/lib/jars/lwjgl.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="G:/Mis documentos/Programación/GitHub/3D-Game-Engine-ThinMatrix/3D Game Engine/lib/native-win"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Odhynth-game-engine/lib/native-win"/>
+			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/Mis documentos/Programación/GitHub/3D-Game-Engine-ThinMatrix/3D Game Engine/lib/jars/slick-util.jar"/>
-	<classpathentry kind="lib" path="G:/Mis documentos/Programación/GitHub/3D-Game-Engine-ThinMatrix/3D Game Engine/lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="lib/jars/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/jars/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
