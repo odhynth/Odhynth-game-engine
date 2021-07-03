@@ -19,6 +19,7 @@ import terrains.Terrain;
 import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
+import entities.Ball;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
@@ -34,7 +35,7 @@ public class MainGameLoop {
 		Loader loader = new Loader();
 
 		// *********TERRAIN TEXTURE STUFF***********
-
+		
 		TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grassy"));
 		TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt"));
 		TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("pinkFlowers"));
@@ -60,11 +61,11 @@ public class MainGameLoop {
 		TexturedModel bobble = new TexturedModel(OBJLoader.loadObjModel("lowPolyTree", loader), new ModelTexture(loader.loadTexture("lowPolyTree")));
 		TexturedModel lamp = new TexturedModel(OBJLoader.loadObjModel("lamp", loader), new ModelTexture(loader.loadTexture("lamp")));
 
-		grass.getTexture().setHasTransparency(true);
-		grass.getTexture().setUseFakeLighting(true);
-		flower.getTexture().setHasTransparency(true);
-		flower.getTexture().setUseFakeLighting(true);
-		fern.getTexture().setHasTransparency(true);
+		grass.getTexture().setHasTransparency(false);
+		grass.getTexture().setUseFakeLighting(false);
+		flower.getTexture().setHasTransparency(false);
+		flower.getTexture().setUseFakeLighting(false);
+		fern.getTexture().setHasTransparency(false);
 
 		List<Entity> entities = new ArrayList<Entity>();
 		Random random = new Random();
@@ -117,6 +118,7 @@ public class MainGameLoop {
 
 		Player player = new Player(playerTexturedModel, new Vector3f(100, 5, -150), 0, 180, 0, 0.6f);
 		Camera camera = new Camera(player);
+		Ball ball = new Ball(playerTexturedModel, new Vector3f(100, 5, -150), 0, 180, 0, 0.6f);
 
 		List<GuiTexture> guis = new ArrayList<GuiTexture>();
 		GuiTexture health = new GuiTexture(loader.loadTexture("gui/health"), new Vector2f(-0.74f, 0.925f), new Vector2f(0.25f, 0.25f));
@@ -125,8 +127,10 @@ public class MainGameLoop {
 		GuiRenderer guiRenderer = new GuiRenderer(loader);
 
 		while (!Display.isCloseRequested()) {
-			player.move(terrain);
+			ball.move(terrain);
+			player.move(terrain,ball);
 			camera.move();
+			renderer.processEntity(ball);
 			renderer.processEntity(player);
 			renderer.processTerrain(terrain);
 			for (Entity entity : entities) {
